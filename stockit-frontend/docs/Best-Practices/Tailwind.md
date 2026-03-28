@@ -22,9 +22,11 @@ source: [Tailwind CSS Best Practices for Vite](https://medium.com/@vishalthakur2
 ## Create Design System with @apply
 ```css
 /* styles.css */
+/*
 .btn-primary {
   @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700;
 }
+*/
 ```
 
 ```jsx

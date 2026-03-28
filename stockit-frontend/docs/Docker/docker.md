@@ -124,3 +124,22 @@ delete container
 docker rmi <imageID>
 ```
 delete image
+
+## Docker Lifecycle
+Docker Image is Immutable / Read-Only / cannot be updated
+it needs to be removed and rebuild again
+
+docker compose automates the deletion and rebuild of docker images
+
+## Docker Compose
+Docker Compose orchestrates Docker activities defined in docker-compose.yaml
+
+```terminaloutput
+docker-compose up
+```
+Command for running what's defined in docker-compose.yaml, if there is no current image, then image going to be build.
+
+```terminaloutput
+docker-compose up --build
+```
+the build flag forces a rebuild of the image.

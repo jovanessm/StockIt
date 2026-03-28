@@ -1,5 +1,6 @@
 ## Vite Commands
 ```bash
+npm install -D prettier prettier-plugion-tailwindcss # Install Prettier and the Tailwind CSS for dev Dependencies
 npm run dev       # Starts the local development server with HMR
 npm run build     # Bundles the app for production into dist/
 npm run preview   # Serves the production build locally (built-in Vite)

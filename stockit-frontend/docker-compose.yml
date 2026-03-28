@@ -1,0 +1,10 @@
+services:
+  stockit-frontend:
+    image: stockit-frontend
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 5173:5173

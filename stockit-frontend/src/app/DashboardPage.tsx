@@ -1,4 +1,4 @@
-import { SectionCards } from "@/components/section-cards"
+import { SectionCards } from "@/components/dashboard/section-cards.tsx"
 
 export default function DashboardPage() {
     return (

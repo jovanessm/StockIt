@@ -13,9 +13,9 @@ import {
     IconUsers,
 } from "@tabler/icons-react"
 
-import { NavMain } from "@/components/nav-main"
-import { NavSecondary } from "@/components/nav-secondary"
-import { NavUser } from "@/components/nav-user"
+import { NavMain } from "@/components/navigation-bar/nav-main.tsx"
+import { NavSecondary } from "@/components/navigation-bar/nav-secondary.tsx"
+import { NavUser } from "@/components/navigation-bar/nav-user.tsx"
 import {
     Sidebar,
     SidebarContent,
@@ -24,7 +24,7 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar.tsx"
 import {StockItLogo} from "@/components/StockItLogo.tsx";
 
 const data = {

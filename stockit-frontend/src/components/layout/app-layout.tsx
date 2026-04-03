@@ -1,7 +1,7 @@
 import * as React from "react"
 
-import { AppSidebar } from "@/components/app-sidebar"
-import { SiteHeader } from "@/components/site-header"
+import { AppSidebar } from "@/components/navigation-bar/app-sidebar.tsx"
+import { SiteHeader } from "@/components/layout/site-header.tsx"
 import {
     SidebarProvider,
 } from "@/components/ui/sidebar"

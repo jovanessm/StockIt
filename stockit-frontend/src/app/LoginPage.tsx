@@ -1,4 +1,4 @@
-import {LoginForm} from "@/components/login-form.tsx"
+import {LoginForm} from "@/components/login/login-form.tsx"
 import {StockItLogo} from "@/components/StockItLogo.tsx"
 import {ModeToggle} from "@/components/mode-toggle.tsx";
 

@@ -2,7 +2,7 @@ import {Routes, Route} from "react-router-dom";
 import {AppLayout} from "@/components/layout/app-layout.tsx";
 import DashboardPage from "@/app/DashboardPage.tsx";
 import {LoginPage} from "@/app/LoginPage.tsx";
-import {ThemeProvider} from "@/components/theme-provider.tsx";
+import {ThemeProvider} from "@/components/theme/theme-provider.tsx";
 import {TooltipProvider} from "@/components/ui/tooltip.tsx";
 
 export default function App() {

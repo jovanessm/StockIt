@@ -8,6 +8,8 @@ const topSellingProducts = [
     {name: "Victor Brave Sword 12", units: 44},
     {name: "Yonex BG 65 String", units: 34},
     {name: "Yonex SHB 65 Z2", units: 24},
+    {name: "Yonex SHB 65 Z2", units: 12},
+    {name: "Yonex SHB 65 Z2", units: 2},
 ]
 
 export function TopSellingRanking() {
@@ -28,7 +30,7 @@ export function TopSellingRanking() {
                 </CardTitle>
             </CardHeader>
             <CardContent className="space-y-0 px-4 pb-4 pt-0">
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 gap-4">
                     {topSellingProducts.map((product, index) => (
                         <div key={product.name}>
                             <div className="grid grid-cols-[1.5rem_minmax(0,1fr)_5rem] items-center gap-3 py-1.5">
@@ -40,7 +42,7 @@ export function TopSellingRanking() {
                                 </div>
                                 <div className="flex items-center gap-3 justify-self-end">
                                     <Progress value={getProgress(product.units)} className="h-2 w-16"/>
-                                    <div className="w-12 text-right text-sm text-muted-foreground">
+                                    <div className="w-20 text-right text-sm text-muted-foreground">
                                         {product.units} units
                                     </div>
                                 </div>

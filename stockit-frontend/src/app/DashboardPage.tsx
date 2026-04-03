@@ -10,16 +10,10 @@ export default function DashboardPage() {
                 <div className="flex flex-col gap-6 md:gap-4">
                     <SectionCards/>
                 </div>
-                <div className="grid grid-cols-3 gap-4 px-4 md:gap-4 lg:px-6">
-
-                        <ChartAreaLegend/>
-
-
-                        <TopSellingRanking />
-
-
-                        <ChartPieLabelCustom/>
-
+                <div className="grid grid-cols-1 2xl:grid-cols-3 gap-4 px-4 md:gap-4 lg:px-6">
+                    <ChartAreaLegend/>
+                    <TopSellingRanking/>
+                    <ChartPieLabelCustom/>
                 </div>
             </div>
         </div>

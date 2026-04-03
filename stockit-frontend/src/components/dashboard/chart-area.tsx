@@ -40,7 +40,7 @@ const chartConfig = {
 
 export function ChartAreaLegend() {
     return (
-        <Card className="border border-border ring-0">
+        <Card className="flex flex-col justify-between border border-border ring-0">
             <CardHeader>
                 <CardTitle>Area Chart - Legend</CardTitle>
                 <CardDescription>

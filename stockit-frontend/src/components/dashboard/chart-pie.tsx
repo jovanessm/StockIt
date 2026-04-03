@@ -51,7 +51,7 @@ const chartConfig = {
 
 export function ChartPieLabelCustom() {
     return (
-        <Card className="flex flex-col border border-border ring-0">
+        <Card className="flex flex-col justify-between border border-border ring-0">
             <CardHeader className="items-center pb-0">
                 <CardTitle>Pie Chart - Custom Label</CardTitle>
                 <CardDescription>January - June 2024</CardDescription>

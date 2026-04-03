@@ -1,5 +1,6 @@
-import { LoginForm } from "@/components/login-form"
-import { StockitLogo } from "@/components/logo"
+import {LoginForm} from "@/components/login-form"
+import {StockitLogo} from "@/components/logo"
+import {ModeToggle} from "@/components/mode-toggle.tsx";
 
 export function LoginPage() {
     return (
@@ -12,15 +13,19 @@ export function LoginPage() {
                 />
             </div>
             <div className="flex flex-col gap-4 p-6 md:p-10">
-                <div className="flex justify-center gap-2 md:justify-start">
+                <div className="flex justify-center gap-2 md:justify-between">
                     <a href="#" aria-label="Stockit" className="inline-flex">
-                        <StockitLogo surface="light" size="sm" withTagline={false} withTitle={false} />
+                        <StockitLogo surface="light" size="sm" withTagline={false} withTitle={false}/>
                     </a>
+                    <div className="flex justify-center items-center gap-2 md:justify-between">
+                        <ModeToggle/>
+                    </div>
                 </div>
                 <div className="flex flex-1 items-center justify-center">
                     <div className="flex w-full max-w-xs flex-col items-center gap-6 md:items-start">
-                        <StockitLogo size="md" withTagline withTitle isColumn className="w-full justify-center md:justify-start" />
-                        <LoginForm className="w-full" />
+                        <StockitLogo size="md" withTagline withTitle isColumn
+                                     className="w-full justify-center md:justify-start"/>
+                        <LoginForm className="w-full"/>
                     </div>
                 </div>
             </div>

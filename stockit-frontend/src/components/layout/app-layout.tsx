@@ -13,7 +13,7 @@ type AppLayoutProps = {
 
 export function AppLayout({
     children,
-    headerTitle = "Dashboard",
+    headerTitle = "StockIt",
 }: AppLayoutProps) {
     return (
         <SidebarProvider

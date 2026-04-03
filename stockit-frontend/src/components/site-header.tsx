@@ -13,7 +13,7 @@ export function SiteHeader({ title }: SiteHeaderProps) {
                 <SidebarTrigger className="-ml-1" />
                 <Separator
                     orientation="vertical"
-                    className="mx-2 data-[orientation=vertical]:h-4"
+                    className="mx-2 "
                 />
                 <h1 className="text-base font-medium">{title}</h1>
                 <div className="ml-auto flex items-center gap-2">

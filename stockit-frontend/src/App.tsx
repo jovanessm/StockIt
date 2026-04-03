@@ -11,7 +11,7 @@ export default function App() {
             <TooltipProvider>
                 <Routes>
                     <Route path="/" element={<div>main</div>}/>
-                    <Route path="/home" element={<AppLayout headerTitle="Dashboard"><DashboardPage /></AppLayout>}/>
+                    <Route path="/home" element={<AppLayout headerTitle="Stock-IT Dashboard"><DashboardPage /></AppLayout>}/>
                     <Route path="/login" element={<LoginPage/>}/>
                 </Routes>
             </TooltipProvider>

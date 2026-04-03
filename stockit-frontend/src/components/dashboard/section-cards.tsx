@@ -17,7 +17,7 @@ export function SectionCards() {
             <Card className="@container/card">
                 <CardHeader>
                     <CardDescription>Total Revenue</CardDescription>
-                    <CardTitle className="text-2xl font-semibold tabular-nums @[200px]/card:text-2xl">
+                    <CardTitle className="text-2xl font-semibold tabular-nums @[200px]/card:text-3xl">
                         $1,250.00
                     </CardTitle>
                     <CardAction>

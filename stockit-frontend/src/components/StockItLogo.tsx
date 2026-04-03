@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-type LogoSize = "sm" | "md"
+type LogoSize =  "xs" |"sm" | "md"
 type LogoSurface = "none"| "light" | "dark" | "primary"
 
 type StockitLogoProps = {
@@ -20,16 +20,19 @@ const surfaceStyles: Record<LogoSurface, string> = {
 }
 
 const iconSizes: Record<LogoSize, string> = {
+    xs: "h-6 w-6",
     sm: "h-8 w-8",
     md: "h-20 w-20",
 }
 
 const titleSizes: Record<LogoSize, string> = {
+    xs: "",
     sm: "text-xl",
     md: "text-3xl",
 }
 
 const taglineSizes: Record<LogoSize, string> = {
+    xs: "",
     sm: "text-[10px]",
     md: "text-xs",
 }
@@ -41,7 +44,7 @@ const taglineTone: Record<LogoSurface, string> = {
     primary: "text-current/75",
 }
 
-export function StockitLogo({
+export function StockItLogo({
     size = "sm",
     surface = "none",
     className,

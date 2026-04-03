@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import {
     IconCamera,
@@ -9,7 +7,6 @@ import {
     IconFileDescription,
     IconFolder,
     IconHelp,
-    IconInnerShadowTop,
     IconListDetails,
     IconSearch,
     IconSettings,
@@ -28,6 +25,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import {StockItLogo} from "@/components/StockItLogo.tsx";
 
 const data = {
     user: {
@@ -140,8 +138,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             className="data-[slot=sidebar-menu-button]:p-1.5!"
                         >
                             <a href="#">
-                                <IconInnerShadowTop className="size-5!" />
-                                <span className="text-base font-semibold">Acme Inc.</span>
+                                <StockItLogo size={"xs"} withTagline={false} withTitle={false} surface={"light"}  />
+                                <span className="text-base font-semibold">Stock-IT</span>
                             </a>
                         </SidebarMenuButton>
                     </SidebarMenuItem>

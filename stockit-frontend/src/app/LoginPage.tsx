@@ -1,5 +1,5 @@
-import {LoginForm} from "@/components/login-form"
-import {StockitLogo} from "@/components/logo"
+import {LoginForm} from "@/components/login-form.tsx"
+import {StockitLogo} from "@/components/logo.tsx"
 import {ModeToggle} from "@/components/mode-toggle.tsx";
 
 export function LoginPage() {

@@ -36,7 +36,7 @@ const data = {
     navMain: [
         {
             title: "Dashboard",
-            url: "#",
+            url: "/home",
             icon: IconDashboard,
         },
         {
@@ -137,7 +137,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             asChild
                             className="data-[slot=sidebar-menu-button]:p-1.5!"
                         >
-                            <a href="#">
+                            <a href="/home">
                                 <StockItLogo size={"xs"} withTagline={false} withTitle={false} surface={"light"}  />
                                 <span className="text-base font-semibold">Stock-IT</span>
                             </a>

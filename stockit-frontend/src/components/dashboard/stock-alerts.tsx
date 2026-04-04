@@ -8,6 +8,9 @@ const data = [
     {name: "Yonex AS-50 Shuttlecock", units: 0},
     {name: "Li-Ning Ultra Grip", units: 0},
     {name: "Victor Brave Sword 12", units: 4},
+    {name: "Yonex BG 65 String", units: 9},
+    {name: "Yonex BG 65 String", units: 12},
+    {name: "Yonex BG 65 String", units: 39},
     {name: "Yonex BG 65 String", units: 39},
 ]
 

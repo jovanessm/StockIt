@@ -3,6 +3,7 @@ import {ChartAreaLegend} from "@/components/dashboard/chart-area.tsx";
 import {ChartPieLabelCustom} from "@/components/dashboard/chart-pie.tsx";
 import {TopSellingRanking} from "@/components/dashboard/top-selling-ranking.tsx";
 import {StockAlerts} from "@/components/dashboard/stock-alerts.tsx";
+import {CustomLayerExample} from "@/components/dashboard/stock-map.tsx";
 
 export default function DashboardPage() {
     return (
@@ -18,6 +19,9 @@ export default function DashboardPage() {
                 </div>
                 <div className="grid grid-cols-1 2xl:grid-cols-3 gap-4 px-4 md:gap-4 lg:px-6">
                     <StockAlerts/>
+                    <div className="2xl:col-span-2">
+                        <CustomLayerExample/>
+                    </div>
                 </div>
             </div>
         </div>

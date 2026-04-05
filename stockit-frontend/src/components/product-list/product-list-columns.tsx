@@ -33,10 +33,38 @@ export const columns: ColumnDef<Product>[] = [
     {
         accessorKey: "category",
         header: "Category",
+        filterFn: (row, columnId, filterValue) => {
+            if (!filterValue) {
+                return true
+            }
+
+            return row.getValue<string>(columnId) === filterValue
+        },
     },
     {
         accessorKey: "stock",
         header: "Stock",
+        filterFn: (row, columnId, filterValue) => {
+            if (!filterValue) {
+                return true
+            }
+
+            const stock = row.getValue<number>(columnId)
+
+            if (filterValue === "outOfStock") {
+                return stock === 0
+            }
+
+            if (filterValue === "lowStock") {
+                return stock > 0 && stock <= 10
+            }
+
+            if (filterValue === "inStock") {
+                return stock > 10
+            }
+
+            return true
+        },
     },
     {
         accessorKey: "price",

@@ -14,12 +14,14 @@ type ProductListSelectProps = {
         placeholder: string
         items: Record<string, string>
     }
+    value?: string
+    onValueChange?: (value: string) => void
 }
 
-export function ProductListSelect({ data }: ProductListSelectProps) {
+export function ProductListSelect({ data, value, onValueChange }: ProductListSelectProps) {
     return (
-        <Select>
-            <SelectTrigger className="w-full max-w-48">
+        <Select value={value} onValueChange={onValueChange}>
+            <SelectTrigger className="w-full sm:w-48">
                 <SelectValue placeholder={data.placeholder} />
             </SelectTrigger>
             <SelectContent>

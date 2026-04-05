@@ -1,4 +1,3 @@
-import {ProductListHeader} from "@/components/product-list/product-list-header.tsx";
 import {DataTable} from "@/components/product-list/data-table.tsx";
 import {columns} from "@/components/product-list/product-list-columns.tsx"
 import type {Product} from "@/components/product-list/product-list-columns.tsx"
@@ -24,8 +23,7 @@ const products: Product[] = [
 
 export default function ProductList() {
     return (
-        <Card className="gap-4 p-4">
-            <ProductListHeader/>
+        <Card className="">
             <DataTable columns={columns} data={products}/>
         </Card>
     )

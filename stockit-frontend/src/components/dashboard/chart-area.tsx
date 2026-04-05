@@ -19,21 +19,21 @@ import {
 } from "@/components/ui/chart"
 
 const chartData = [
-    { month: "January", desktop: 186, mobile: 80 },
-    { month: "February", desktop: 305, mobile: 200 },
-    { month: "March", desktop: 237, mobile: 120 },
-    { month: "April", desktop: 73, mobile: 190 },
-    { month: "May", desktop: 209, mobile: 130 },
-    { month: "June", desktop: 214, mobile: 140 },
+    { month: "January", revenue: 186, profit: 80 },
+    { month: "February", revenue: 305, profit: 200 },
+    { month: "March", revenue: 220, profit: 100 },
+    { month: "April", revenue: 240, profit: 190 },
+    { month: "May", revenue: 209, profit: 130 },
+    { month: "June", revenue: 214, profit: 140 },
 ]
 
 const chartConfig = {
-    desktop: {
-        label: "Desktop",
+    revenue: {
+        label: "Revenue",
         color: "var(--chart-1)",
     },
-    mobile: {
-        label: "Mobile",
+    profit: {
+        label: "Profit",
         color: "var(--chart-2)",
     },
 } satisfies ChartConfig
@@ -42,9 +42,9 @@ export function ChartAreaLegend() {
     return (
         <Card className="flex flex-col justify-between border border-border ring-0">
             <CardHeader>
-                <CardTitle>Area Chart - Legend</CardTitle>
+                <CardTitle>Semester Revenue Overview</CardTitle>
                 <CardDescription>
-                    Showing total visitors for the last 6 months
+                    Showing total revenue for the last 6 months
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -70,19 +70,19 @@ export function ChartAreaLegend() {
                             content={<ChartTooltipContent indicator="line" />}
                         />
                         <Area
-                            dataKey="mobile"
+                            dataKey="profit"
                             type="natural"
-                            fill="var(--color-mobile)"
+                            fill="var(--color-profit)"
                             fillOpacity={0.4}
-                            stroke="var(--color-mobile)"
+                            stroke="var(--color-profit)"
                             stackId="a"
                         />
                         <Area
-                            dataKey="desktop"
+                            dataKey="revenue"
                             type="natural"
-                            fill="var(--color-desktop)"
+                            fill="var(--color-revenue)"
                             fillOpacity={0.4}
-                            stroke="var(--color-desktop)"
+                            stroke="var(--color-revenue)"
                             stackId="a"
                         />
                         <ChartLegend content={<ChartLegendContent />} />
@@ -96,7 +96,7 @@ export function ChartAreaLegend() {
                             Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
                         </div>
                         <div className="flex items-center gap-2 leading-none text-muted-foreground">
-                            January - June 2024
+                            January - June 2026
                         </div>
                     </div>
                 </div>

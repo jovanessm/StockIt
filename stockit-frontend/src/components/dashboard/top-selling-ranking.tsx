@@ -7,9 +7,9 @@ const topSellingProducts = [
     {name: "Li-Ning Ultra Grip", units: 59},
     {name: "Victor Brave Sword 12", units: 44},
     {name: "Yonex BG 65 String", units: 34},
-    {name: "Yonex SHB 65 Z2", units: 24},
-    {name: "Yonex SHB 65 Z2", units: 12},
-    {name: "Yonex SHB 65 Z2", units: 2},
+    {name: "Yonex Super Grap", units: 9},
+    {name: "Li-Ning A+ 300 Nylon", units: 6},
+    {name: "Victor Badminton Racket Bag BR9308", units: 4}
 ]
 
 export function TopSellingRanking() {

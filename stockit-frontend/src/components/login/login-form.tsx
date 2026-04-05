@@ -1,20 +1,27 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
+
+import { cn } from "@/lib/utils.ts"
+import { Button } from "@/components/ui/button.tsx"
 import {
     Field,
     FieldDescription,
     FieldGroup,
     FieldLabel,
     FieldSeparator,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/field.tsx"
+import { Input } from "@/components/ui/input.tsx"
 
 export function LoginForm({
                               className,
                               ...props
                           }: React.ComponentProps<"form">) {
+    const navigate = useNavigate()
+
     return (
-        <form className={cn("flex flex-col gap-6", className)} {...props}>
+        <form
+            className={cn("flex flex-col gap-6", className)}
+            {...props}
+        >
             <FieldGroup>
                 <div className="flex flex-col items-center gap-1 text-center">
                     <h1 className="text-2xl font-bold">Login to your account</h1>
@@ -39,7 +46,7 @@ export function LoginForm({
                     <Input id="password" type="password" required />
                 </Field>
                 <Field>
-                    <Button type="submit">Login</Button>
+                    <Button type="button" onClick={() => navigate("/home")}>Login</Button>
                 </Field>
                 <FieldSeparator>Or continue with</FieldSeparator>
                 <Field>

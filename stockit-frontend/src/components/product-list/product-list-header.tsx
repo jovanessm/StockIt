@@ -7,6 +7,7 @@ const statusSelectData = {
     label: "Status",
     placeholder: "Status",
     items: {
+        all: "All",
         inStock: "In stock",
         lowStock: "Low stock",
         outOfStock: "Out of stock",
@@ -17,6 +18,7 @@ const categorySelectData = {
     label: "Category",
     placeholder: "Category",
     items: {
+        all: "All",
         racket: "Racket",
         bag: "Bag",
         grip: "Grip",

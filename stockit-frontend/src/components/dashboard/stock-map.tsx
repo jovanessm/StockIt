@@ -3,6 +3,7 @@ import {Map, MapControls, useMap} from "@/components/ui/map";
 import {Button} from "@/components/ui/button";
 import {Layers, X} from "lucide-react";
 import {geojsonData} from "@/components/dashboard/geojson-data";
+import {MapMouseEvent} from "maplibre-gl";
 
 function CustomLayer() {
     const {map, isLoaded} = useMap();
@@ -68,7 +69,7 @@ function CustomLayer() {
             setHoveredCities(null);
         };
 
-        const handleMouseMove = (e: maplibregl.MapMouseEvent) => {
+        const handleMouseMove = (e: MapMouseEvent) => {
             const features = map.queryRenderedFeatures(e.point, {
                 layers: ["cities-fill"],
             });

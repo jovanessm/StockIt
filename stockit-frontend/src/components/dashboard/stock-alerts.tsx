@@ -9,9 +9,9 @@ const data = [
     {name: "Li-Ning Ultra Grip", units: 0},
     {name: "Victor Brave Sword 12", units: 4},
     {name: "Yonex BG 65 String", units: 9},
-    {name: "Yonex BG 65 String", units: 12},
-    {name: "Yonex BG 65 String", units: 39},
-    {name: "Yonex BG 65 String", units: 39},
+    {name: "Yonex BG 80 String", units: 12},
+    {name: "Yonex Super Grap", units: 39},
+    {name: "Li-Ning A+ 300 Nylon", units: 39},
 ]
 
 export function StockAlerts() {

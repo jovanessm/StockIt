@@ -46,8 +46,8 @@ const data = {
             icon: IconFolder,
         },
         {
-            title: "Lifecycle",
-            url: "#",
+            title: "Product Movement",
+            url: "/product-movement",
             icon: IconListDetails,
         },
         {

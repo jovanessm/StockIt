@@ -1,4 +1,4 @@
-import {DataTable} from "@/components/product-list/data-table.tsx";
+import {ProductDataTable} from "@/components/product-list/product-data-table.tsx";
 import {columns} from "@/components/product-list/product-list-columns.tsx"
 import type {Product} from "@/components/product-list/product-list-columns.tsx"
 import {Card} from "@/components/ui/card.tsx";
@@ -24,7 +24,7 @@ const products: Product[] = [
 export default function ProductList() {
     return (
         <Card className="">
-            <DataTable columns={columns} data={products}/>
+            <ProductDataTable columns={columns} data={products}/>
         </Card>
     )
 }

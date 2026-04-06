@@ -28,7 +28,7 @@ export default function ProductDetailPage() {
         <div className="flex flex-col">
             <Card className={"m-4 px-8"}>
                 <div className={"flex flex-col lg:flex-row gap-8"}>
-                    <div className={"w-1/2"}>
+                    <div className={"w-full lg:w-1/2"}>
                         <EmblaCarousel slides={SLIDES}/>
                     </div>
                     <ProductDetailDescription

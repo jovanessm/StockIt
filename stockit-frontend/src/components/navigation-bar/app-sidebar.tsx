@@ -13,9 +13,9 @@ import {
     IconUsers,
 } from "@tabler/icons-react"
 
-import { NavMain } from "@/components/navigation-bar/nav-main.tsx"
-import { NavSecondary } from "@/components/navigation-bar/nav-secondary.tsx"
-import { NavUser } from "@/components/navigation-bar/nav-user.tsx"
+import {NavMain} from "@/components/navigation-bar/nav-main.tsx"
+import {NavSecondary} from "@/components/navigation-bar/nav-secondary.tsx"
+import {NavUser} from "@/components/navigation-bar/nav-user.tsx"
 import {
     Sidebar,
     SidebarContent,
@@ -40,6 +40,11 @@ const data = {
             icon: IconDashboard,
         },
         {
+            title: "Product List",
+            url: "/product-list",
+            icon: IconFolder,
+        },
+        {
             title: "Lifecycle",
             url: "#",
             icon: IconListDetails,
@@ -49,11 +54,7 @@ const data = {
             url: "#",
             icon: IconChartBar,
         },
-        {
-            title: "Projects",
-            url: "#",
-            icon: IconFolder,
-        },
+
         {
             title: "Team",
             url: "#",
@@ -127,7 +128,7 @@ const data = {
     ],
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({...props}: React.ComponentProps<typeof Sidebar>) {
     return (
         <Sidebar collapsible="offcanvas" {...props}>
             <SidebarHeader>
@@ -138,7 +139,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             className="data-[slot=sidebar-menu-button]:p-1.5!"
                         >
                             <a href="/home">
-                                <StockItLogo size={"xs"} withTagline={false} withTitle={false} surface={"light"}  />
+                                <StockItLogo size={"xs"} withTagline={false} withTitle={false} surface={"light"}/>
                                 <span className="text-base font-semibold">Stock-IT</span>
                             </a>
                         </SidebarMenuButton>
@@ -146,11 +147,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </SidebarMenu>
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.navMain} />
-                <NavSecondary items={data.navSecondary} className="mt-auto" />
+                <NavMain items={data.navMain}/>
+                <NavSecondary items={data.navSecondary} className="mt-auto"/>
             </SidebarContent>
             <SidebarFooter>
-                <NavUser user={data.user} />
+                <NavUser user={data.user}/>
             </SidebarFooter>
         </Sidebar>
     )

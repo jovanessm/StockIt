@@ -12,12 +12,16 @@ interface RatingProps {
 }
 
 const Rating = ({ rate, className, showScore, description }: RatingProps) => {
-  if (!rate) return;
+  const safeRate = Number.isFinite(rate) ? rate : 0;
+  const clampedRate = Math.min(MAX_STARS, Math.max(0, safeRate));
+  const normalizedRate = Math.round(clampedRate * 2) / 2;
+
+  if (normalizedRate <= 0) return;
 
   const renderStars = () => {
-    const fullStars = Math.floor(rate);
-    const hasHalfStar = rate % 1 >= 0.5;
-    const emptyStars = MAX_STARS - fullStars - (hasHalfStar ? 1 : 0);
+    const fullStars = Math.floor(normalizedRate);
+    const hasHalfStar = normalizedRate % 1 === 0.5;
+    const emptyStars = Math.max(0, MAX_STARS - fullStars - (hasHalfStar ? 1 : 0));
 
     const stars = [];
 
@@ -61,7 +65,7 @@ const Rating = ({ rate, className, showScore, description }: RatingProps) => {
         )}
       >
         {renderStars()}
-        <span className="text-sm font-semibold">{rate.toFixed(1)}</span>
+        <span className="text-sm font-semibold">{clampedRate.toFixed(1)}</span>
       </div>
     );
   }
@@ -73,7 +77,7 @@ const Rating = ({ rate, className, showScore, description }: RatingProps) => {
         <div className="flex items-center gap-2 [&_svg]:size-5 [&>div]:size-5">
           {renderStars()}
           {showScore && (
-            <span className="text-sm font-semibold">{rate.toFixed(1)}</span>
+            <span className="text-sm font-semibold">{clampedRate.toFixed(1)}</span>
           )}
         </div>
         <p className="text-sm text-muted-foreground">{description}</p>

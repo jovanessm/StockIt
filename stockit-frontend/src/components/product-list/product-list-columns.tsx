@@ -1,5 +1,6 @@
 import type {ColumnDef} from "@tanstack/react-table"
 import {MoreHorizontal} from "lucide-react";
+import {Link} from "react-router-dom";
 
 import {Button} from "@/components/ui/button"
 import {
@@ -100,7 +101,9 @@ export const columns: ColumnDef<Product>[] = [
                                 Copy product ID
                             </DropdownMenuItem>
                             <DropdownMenuSeparator/>
-                            <DropdownMenuItem>View product details</DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link to={`/product/${product.id}`}>View product details</Link>
+                            </DropdownMenuItem>
                             <DropdownMenuItem>Delete product</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>

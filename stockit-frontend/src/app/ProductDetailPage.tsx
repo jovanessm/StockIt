@@ -1,5 +1,5 @@
 import {EmblaCarousel} from "@/components/ui/embla-carousel/EmblaCarousel.tsx";
-import ProductDetailDescription from "@/components/product-detail/product-detail-description..tsx";
+import ProductDetailDescription from "@/components/product-detail/product-detail-description.tsx";
 import {Card} from "@/components/ui/card.tsx";
 
 const SLIDE_COUNT = 10

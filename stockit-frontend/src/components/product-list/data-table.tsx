@@ -84,7 +84,7 @@ export function DataTable<TData, TValue>({
     return (
         <div className="px-4">
             <div className="flex flex-col gap-3 pb-4 lg:flex-row lg:items-center lg:justify-between">
-                <div className="flex w-full sm:w-48 lg:w-126 items-center">
+                <div className="flex w-full sm:w-48 lg:w-[31.5rem] items-center">
                     <Field>
                         <InputGroup className="w-full">
                             <InputGroupInput placeholder="Filter products..."

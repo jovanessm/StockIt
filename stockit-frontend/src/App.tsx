@@ -14,7 +14,7 @@ export default function App() {
             <TooltipProvider>
                 <Routes>
                     <Route path="/"
-                           element={<div>main</div>}/>
+                           element={<LoginPage/>}/>
                     <Route path="/login"
                            element={<LoginPage/>}/>
                     <Route path="/home"

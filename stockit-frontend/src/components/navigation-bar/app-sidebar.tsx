@@ -12,6 +12,7 @@ import {
     IconSettings,
     IconUsers,
 } from "@tabler/icons-react"
+import { Link } from "react-router-dom"
 
 import {NavMain} from "@/components/navigation-bar/nav-main.tsx"
 import {NavSecondary} from "@/components/navigation-bar/nav-secondary.tsx"
@@ -138,10 +139,10 @@ export function AppSidebar({...props}: React.ComponentProps<typeof Sidebar>) {
                             asChild
                             className="data-[slot=sidebar-menu-button]:p-1.5!"
                         >
-                            <a href="/home">
+                            <Link to="/home">
                                 <StockItLogo size={"xs"} withTagline={false} withTitle={false} surface={"light"}/>
                                 <span className="text-base font-semibold">Stock-IT</span>
-                            </a>
+                            </Link>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>

@@ -1,6 +1,7 @@
 import {LoginForm} from "@/components/login/login-form.tsx"
 import {StockItLogo} from "@/components/StockItLogo.tsx"
 import {ModeToggle} from "@/components/mode-toggle.tsx";
+import { Link } from "react-router-dom"
 
 export default function LoginPage() {
     return (
@@ -14,9 +15,9 @@ export default function LoginPage() {
             </div>
             <div className="flex flex-col gap-4 p-6 md:p-10">
                 <div className="flex justify-center gap-2 md:justify-between">
-                    <a href="#" aria-label="Stockit" className="inline-flex">
+                    <Link to="/" aria-label="Stockit" className="inline-flex">
                         <StockItLogo surface="light" size="sm" withTagline={false} withTitle={false}/>
-                    </a>
+                    </Link>
                     <div className="flex justify-center items-center gap-2 md:justify-between">
                         <ModeToggle/>
                     </div>

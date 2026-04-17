@@ -53,6 +53,7 @@ export function StockItLogo({
     isColumn = false,
 }: StockitLogoProps) {
     const hasText = withTitle || withTagline
+    const logoSrc = `${import.meta.env.BASE_URL}logo/stockit-logo.svg`
 
     return (
         <div
@@ -65,7 +66,7 @@ export function StockItLogo({
             )}
         >
             <img
-                src="/logo/stockit-logo.svg"
+                src={logoSrc}
                 alt="Stockit logo"
                 className={cn("shrink-0", iconSizes[size])}
             />

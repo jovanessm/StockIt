@@ -7,22 +7,32 @@ export function ProductMovementFilterGroup() {
     return (
         <ToggleGroup
             type="single"
-            size="sm"
-            defaultValue="top"
+            size="lg"
+            defaultValue="all"
             variant="outline"
-            spacing={2}
+            spacing={5}
+            className="!inline-grid !w-max grid-flow-col auto-cols-fr"
         >
-            <ToggleGroupItem value="top" aria-label="Toggle top">
-                Top
+            <ToggleGroupItem value="all" aria-label="Toggle all" className="w-full">
+                All
             </ToggleGroupItem>
-            <ToggleGroupItem value="bottom" aria-label="Toggle bottom">
-                Bottom
+            <ToggleGroupItem value="shuttlecock" aria-label="Toggle shuttlecock" className="w-full">
+                Shuttlecock
             </ToggleGroupItem>
-            <ToggleGroupItem value="left" aria-label="Toggle left">
-                Left
+            <ToggleGroupItem value="racket" aria-label="Toggle racket" className="w-full">
+                Racket
             </ToggleGroupItem>
-            <ToggleGroupItem value="right" aria-label="Toggle right">
-                Right
+            <ToggleGroupItem value="bag" aria-label="Toggle bag" className="w-full">
+                Bag
+            </ToggleGroupItem>
+            <ToggleGroupItem value="shoes" aria-label="Toggle shoes" className="w-full">
+                Shoes
+            </ToggleGroupItem>
+            <ToggleGroupItem value="string" aria-label="Toggle string" className="w-full">
+                String
+            </ToggleGroupItem>
+            <ToggleGroupItem value="grip" aria-label="Toggle grip" className="w-full">
+                Grip
             </ToggleGroupItem>
         </ToggleGroup>
     )

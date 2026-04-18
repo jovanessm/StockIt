@@ -66,9 +66,9 @@ export function ProductMovementTransactionForm() {
     };
 
     return (
-        <Card className="flex h-full min-h-[42rem] bg-muted/80 py-5">
+        <Card className="flex h-full min-h-[42rem] bg-muted/80 py-4">
             <CardHeader>
-                <CardTitle className="text-3xl font-medium text-primary">Transaction List</CardTitle>
+                <CardTitle className="text-3xl font-semibold text-primary">Transaction List</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col h-full flex-1">
                 <form className="flex h-full flex-col flex-1 gap-6 justify-between">

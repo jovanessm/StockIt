@@ -17,7 +17,7 @@ export function ProductMovementFilterGroup({ value, onValueChange }: ProductMove
             onValueChange={(nextValue) => onValueChange(nextValue || "all")}
             variant="outline"
             spacing={5}
-            className="!inline-grid !w-max grid-flow-col auto-cols-fr"
+            className="grid w-full grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 xl:!inline-grid xl:!w-max xl:grid-flow-col xl:auto-cols-fr"
         >
             <ToggleGroupItem value="all" aria-label="Toggle all" className="w-full">
                 All

@@ -1,16 +1,16 @@
-import { useMemo, useState } from "react";
+import {useMemo, useState} from "react";
 
-import { ProductMovementFilterGroup } from "@/components/product-movement/product-movement-filter-group.tsx";
+import {ProductMovementFilterGroup} from "@/components/product-movement/product-movement-filter-group.tsx";
 import {
     ProductMovementGallery,
     type ProductMovementCatalogItem,
 } from "@/components/product-movement/product-movement-gallery.tsx";
-import { ProductMovementSearchBar } from "@/components/product-movement/product-movement-search-bar.tsx";
+import {ProductMovementSearchBar} from "@/components/product-movement/product-movement-search-bar.tsx";
 import {
     ProductMovementTransactionForm,
     type TransactionItem,
 } from "@/components/product-movement/product-movement-transaction-form.tsx";
-import { Card } from "@/components/ui/card.tsx";
+import {Card} from "@/components/ui/card.tsx";
 
 const productItems: ProductMovementCatalogItem[] = [
     {
@@ -53,6 +53,48 @@ const productItems: ProductMovementCatalogItem[] = [
         imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1005.jpg",
         name: "Yonex Team Series Bag",
         info: "Racket bag with extra storage",
+        category: "bag",
+    },
+    {
+        id: "victor-thruster-k-9000",
+        imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1006.jpg",
+        name: "Victor Thruster K 9000",
+        info: "Power-focused attacking racket",
+        category: "racket",
+    },
+    {
+        id: "yonex-mavis-350-nylon-shuttle",
+        imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1007.jpg",
+        name: "Yonex Mavis 350 Nylon Shuttle",
+        info: "Durable shuttlecock for practice",
+        category: "shuttlecock",
+    },
+    {
+        id: "victor-sh-a920-shoes",
+        imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1008.jpg",
+        name: "Victor SH-A920 Shoes",
+        info: "Stable fit for quick footwork",
+        category: "shoes",
+    },
+    {
+        id: "yonex-bg-80-power",
+        imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1009.jpg",
+        name: "Yonex BG 80 Power",
+        info: "High-repulsion string for smashes",
+        category: "string",
+    },
+    {
+        id: "victor-tacky-towel-grip-x5",
+        imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1000.jpg",
+        name: "Victor Tacky Towel Grip x5",
+        info: "Absorbent grip set for comfort",
+        category: "grip",
+    },
+    {
+        id: "li-ning-aypp004-badminton-bag",
+        imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1001.jpg",
+        name: "Li-Ning AYPP004 Badminton Bag",
+        info: "Thermal compartment and shoe pocket",
         category: "bag",
     },
 ];
@@ -117,7 +159,7 @@ export default function ProductMovementPage() {
             if (existingItem) {
                 return prevItems.map((transactionItem) =>
                     transactionItem.id === item.id
-                        ? { ...transactionItem, quantity: transactionItem.quantity + 1 }
+                        ? {...transactionItem, quantity: transactionItem.quantity + 1}
                         : transactionItem,
                 );
             }
@@ -139,7 +181,7 @@ export default function ProductMovementPage() {
         setTransactionItems((prevItems) =>
             prevItems.map((item) =>
                 item.id === id
-                    ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+                    ? {...item, quantity: Math.max(1, item.quantity + delta)}
                     : item,
             ),
         );
@@ -151,16 +193,18 @@ export default function ProductMovementPage() {
 
     return (
         <Card className="m-4 p-4">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
-                <div className="flex w-full flex-col gap-4 lg:w-[70%]">
-                    <ProductMovementSearchBar value={searchText} onValueChange={setSearchText} />
+            <div className="flex flex-col gap-4 xl:flex-row xl:items-start">
+                <div className="flex w-full flex-col gap-4 xl:w-[70%]">
+                    <ProductMovementSearchBar value={searchText} onValueChange={setSearchText}/>
                     <ProductMovementFilterGroup
                         value={selectedCategory}
                         onValueChange={setSelectedCategory}
                     />
-                    <ProductMovementGallery items={filteredItems} onAdd={addToTransaction} />
+                    <div className="max-h-180 overflow-y-auto">
+                        <ProductMovementGallery items={filteredItems} onAdd={addToTransaction}/>
+                    </div>
                 </div>
-                <div className="w-full lg:w-[30%]">
+                <div className="w-full xl:w-[30%]">
                     <ProductMovementTransactionForm
                         items={transactionItems}
                         onIncrement={(id) => updateQuantity(id, 1)}

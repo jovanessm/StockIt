@@ -21,7 +21,7 @@ export function ProductMovementGallery({ items, onAdd }: ProductMovementGalleryP
     const navigate = useNavigate();
 
     return (
-        <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
             {items.map((item) => (
                 <Card
                     key={item.id}

@@ -1,21 +1,16 @@
-import {Field} from "@/components/ui/field.tsx";
-import {InputGroup, InputGroupAddon, InputGroupInput} from "@/components/ui/input-group.tsx";
-import {SearchIcon} from "lucide-react";
+import {ProductMovementFilterGroup} from "@/components/product-movement/product-movement-filter-group.tsx";
+import {ProductMovementSearchBar} from "@/components/product-movement/product-movement-search-bar.tsx";
+import {ProductMovementTransactionForm} from "@/components/product-movement/product-movement-transaction-form.tsx";
 
 export default function ProductMovementPage() {
     return (
-        <div className="flex flex-row">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
             <div className="lg:w-[70%]">
-                <Field>
-                    <InputGroup className="w-full">
-                        <InputGroupInput
-                            placeholder="Filter products..."
-                        />
-                        <InputGroupAddon align="inline-end">
-                            <SearchIcon/>
-                        </InputGroupAddon>
-                    </InputGroup>
-                </Field>
+                <ProductMovementSearchBar/>
+                <ProductMovementFilterGroup/>
+            </div>
+            <div className="lg:w-[30%]">
+                <ProductMovementTransactionForm/>
             </div>
         </div>
     )

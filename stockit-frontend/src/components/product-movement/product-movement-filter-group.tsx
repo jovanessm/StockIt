@@ -3,12 +3,18 @@ import {
     ToggleGroupItem,
 } from "@/components/ui/toggle-group"
 
-export function ProductMovementFilterGroup() {
+type ProductMovementFilterGroupProps = {
+    value: string;
+    onValueChange: (value: string) => void;
+}
+
+export function ProductMovementFilterGroup({ value, onValueChange }: ProductMovementFilterGroupProps) {
     return (
         <ToggleGroup
             type="single"
             size="lg"
-            defaultValue="all"
+            value={value}
+            onValueChange={(nextValue) => onValueChange(nextValue || "all")}
             variant="outline"
             spacing={5}
             className="!inline-grid !w-max grid-flow-col auto-cols-fr"

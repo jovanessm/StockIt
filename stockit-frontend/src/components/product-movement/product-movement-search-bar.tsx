@@ -7,11 +7,23 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group.tsx";
 
-export function ProductMovementSearchBar() {
+type ProductMovementSearchBarProps = {
+  value: string;
+  onValueChange: (value: string) => void;
+};
+
+export function ProductMovementSearchBar({
+  value,
+  onValueChange,
+}: ProductMovementSearchBarProps) {
   return (
     <Field>
       <InputGroup className="w-full">
-        <InputGroupInput placeholder="Filter products..." />
+        <InputGroupInput
+          placeholder="Filter products..."
+          value={value}
+          onChange={(event) => onValueChange(event.target.value)}
+        />
         <InputGroupAddon align="inline-end">
           <SearchIcon />
         </InputGroupAddon>

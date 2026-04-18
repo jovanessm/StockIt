@@ -9,6 +9,7 @@ export type ProductMovementCatalogItem = {
     imageSrc: string;
     name: string;
     info: string;
+    category: string;
 };
 
 type ProductMovementGalleryProps = {
@@ -72,4 +73,3 @@ export function ProductMovementGallery({ items, onAdd }: ProductMovementGalleryP
         </div>
     );
 }
-

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { ProductMovementFilterGroup } from "@/components/product-movement/product-movement-filter-group.tsx";
 import {
@@ -18,36 +18,42 @@ const productItems: ProductMovementCatalogItem[] = [
         imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1000.jpg",
         name: "Yonex Astrox 88S Pro",
         info: "Control-oriented doubles racket",
+        category: "racket",
     },
     {
         id: "yonex-aerosensa-50",
         imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1001.jpg",
         name: "Yonex Aerosensa 50",
         info: "Premium feather shuttlecock",
+        category: "shuttlecock",
     },
     {
         id: "yonex-power-cushion-65-z2",
         imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1002.jpg",
         name: "Yonex Power Cushion 65 Z2",
         info: "Lightweight indoor court shoes",
+        category: "shoes",
     },
     {
         id: "yonex-bg-65-string",
         imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1003.jpg",
         name: "Yonex BG 65 String",
         info: "Durable all-round string set",
+        category: "string",
     },
     {
         id: "victor-overgrip-comfort",
         imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1004.jpg",
         name: "Victor Overgrip Comfort",
         info: "Soft grip tape for control",
+        category: "grip",
     },
     {
         id: "yonex-team-series-bag",
         imageSrc: "https://raw.githubusercontent.com/yavuzceliker/sample-images/main/docs/image-1005.jpg",
         name: "Yonex Team Series Bag",
         info: "Racket bag with extra storage",
+        category: "bag",
     },
 ];
 
@@ -84,6 +90,25 @@ const initialTransactionItems: TransactionItem[] = [
 
 export default function ProductMovementPage() {
     const [transactionItems, setTransactionItems] = useState(initialTransactionItems);
+    const [searchText, setSearchText] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("all");
+
+    const filteredItems = useMemo(() => {
+        const normalizedSearch = searchText.trim().toLowerCase();
+
+        return productItems.filter((item) => {
+            const matchesSearch =
+                normalizedSearch.length === 0 ||
+                [item.name, item.info, item.category].some((value) =>
+                    value.toLowerCase().includes(normalizedSearch),
+                );
+
+            const matchesCategory =
+                selectedCategory === "all" || item.category === selectedCategory;
+
+            return matchesSearch && matchesCategory;
+        });
+    }, [searchText, selectedCategory]);
 
     const addToTransaction = (item: ProductMovementCatalogItem) => {
         setTransactionItems((prevItems) => {
@@ -128,9 +153,12 @@ export default function ProductMovementPage() {
         <Card className="m-4 p-4">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
                 <div className="flex w-full flex-col gap-4 lg:w-[70%]">
-                    <ProductMovementSearchBar />
-                    <ProductMovementFilterGroup />
-                    <ProductMovementGallery items={productItems} onAdd={addToTransaction} />
+                    <ProductMovementSearchBar value={searchText} onValueChange={setSearchText} />
+                    <ProductMovementFilterGroup
+                        value={selectedCategory}
+                        onValueChange={setSelectedCategory}
+                    />
+                    <ProductMovementGallery items={filteredItems} onAdd={addToTransaction} />
                 </div>
                 <div className="w-full lg:w-[30%]">
                     <ProductMovementTransactionForm

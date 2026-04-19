@@ -1,0 +1,131 @@
+import type { ColumnDef } from "@tanstack/react-table"
+import { Copy, Link as LinkIcon, MoreHorizontal } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+export type TransactionRow = {
+    transactionId: string
+    productId: string
+    productName: string
+    dateTime: string
+    stockBefore: number
+    stockAfter: number
+    method: "restock" | "adjustment" | "sale"
+    status: "completed" | "pending" | "cancelled"
+}
+
+const getMethodBadgeVariant = (method: string) => {
+    if (method === "restock") return "default"
+    if (method === "adjustment") return "secondary"
+    if (method === "sale") return "outline"
+    return "outline"
+}
+
+const getStatusBadgeVariant = (status: string) => {
+    if (status === "completed") return "default"
+    if (status === "pending") return "secondary"
+    return "outline"
+}
+
+export const columns: ColumnDef<TransactionRow>[] = [
+    {
+        accessorKey: "transactionId",
+        header: "TRANSACTION ID",
+    },
+    {
+        accessorKey: "productId",
+        header: "PRODUCT ID",
+    },
+    {
+        accessorKey: "productName",
+        header: "PRODUCT NAME",
+    },
+    {
+        accessorKey: "dateTime",
+        header: "DATETIME",
+    },
+    {
+        accessorKey: "stockBefore",
+        header: "STOCK BEFORE",
+        cell: ({ row }) => (
+            <div className="text-right font-medium">{row.original.stockBefore}</div>
+        ),
+    },
+    {
+        accessorKey: "stockAfter",
+        header: "STOCK AFTER",
+        cell: ({ row }) => (
+            <div className="text-right font-medium">{row.original.stockAfter}</div>
+        ),
+    },
+    {
+        accessorKey: "method",
+        header: "METHOD",
+        cell: ({ row }) => {
+            const method = row.original.method
+            return (
+                <Badge variant={getMethodBadgeVariant(method)}>
+                    {method.charAt(0).toUpperCase() + method.slice(1)}
+                </Badge>
+            )
+        },
+    },
+    {
+        accessorKey: "status",
+        header: "STATUS",
+        cell: ({ row }) => {
+            const status = row.original.status
+            return (
+                <Badge variant={getStatusBadgeVariant(status)}>
+                    {status.charAt(0).toUpperCase() + status.slice(1)}
+                </Badge>
+            )
+        },
+    },
+    {
+        id: "actions",
+        header: "ACTION",
+        cell: ({ row }) => {
+            return (
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                            <MoreHorizontal className="h-4 w-4" />
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="min-w-40">
+                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                        <DropdownMenuItem
+                            onClick={() => navigator.clipboard.writeText(row.original.transactionId)}
+                        >
+                            <Copy className="mr-2 h-4 w-4" />
+                            Copy Transaction ID
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                            onClick={() => navigator.clipboard.writeText(row.original.productId)}
+                        >
+                            <Copy className="mr-2 h-4 w-4" />
+                            Copy Product ID
+                        </DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem asChild>
+                            <a href={`/product/${row.original.productId}`} className="flex items-center">
+                                <LinkIcon className="mr-2 h-4 w-4" />
+                                Go to Product Details
+                            </a>
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            )
+        },
+    },
+]
+

@@ -7,6 +7,7 @@ import ProductListPage from "@/app/ProductListPage.tsx";
 import DashboardPage from "@/app/DashboardPage.tsx";
 import LoginPage from "@/app/LoginPage.tsx";
 import ProductDetailPage from "@/app/ProductDetailPage.tsx";
+import ProductMovementPage from "@/app/ProductMovementPage.tsx";
 
 export default function App() {
     return (
@@ -23,6 +24,8 @@ export default function App() {
                            element={<AppLayout headerTitle="Stock-IT Product List"><ProductListPage/></AppLayout>}/>
                     <Route path="/product/:id"
                            element={<AppLayout headerTitle="Stock-IT Product Detail"><ProductDetailPage/></AppLayout>}/>
+                    <Route path="/product-movement"
+                           element={<AppLayout headerTitle="Stock-IT Product Movement"><ProductMovementPage/></AppLayout>}/>
                 </Routes>
             </TooltipProvider>
         </ThemeProvider>

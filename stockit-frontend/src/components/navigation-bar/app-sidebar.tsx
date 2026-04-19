@@ -1,7 +1,7 @@
 import * as React from "react"
 import {
     IconCamera,
-    IconChartBar,
+    IconHistory,
     IconDashboard,
     IconFileAi,
     IconFileDescription,
@@ -51,9 +51,9 @@ const data = {
             icon: IconListDetails,
         },
         {
-            title: "Analytics",
-            url: "#",
-            icon: IconChartBar,
+            title: "Transaction History",
+            url: "/transaction-history",
+            icon: IconHistory,
         },
 
         {

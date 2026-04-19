@@ -34,7 +34,7 @@ export function ProductMovementTransactionForm({
                 <CardTitle className="text-3xl font-semibold text-primary">Transaction List</CardTitle>
             </CardHeader>
             <CardContent className="flex min-h-0 flex-1 flex-col">
-                <form className="flex min-h-0 flex-1 flex-col gap-6">
+                <form onSubmit={() => {}} className="flex min-h-0 flex-1 flex-col gap-6">
                     <div className="flex-1 space-y-3 overflow-y-auto pr-1">
                         {items.map((item) => (
                             <ProductMovementTransactionItem
@@ -49,8 +49,7 @@ export function ProductMovementTransactionForm({
                             />
                         ))}
                     </div>
-
-                    <Button type="button" className="h-14 w-full rounded-2xl text-base">
+                    <Button type="submit" className="h-14 w-full rounded-2xl text-base">
                         Save Transaction
                     </Button>
                 </form>

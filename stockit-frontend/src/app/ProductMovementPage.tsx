@@ -200,7 +200,7 @@ export default function ProductMovementPage() {
                         value={selectedCategory}
                         onValueChange={setSelectedCategory}
                     />
-                    <div className="max-h-180 overflow-y-auto">
+                    <div className="max-h-[45rem] overflow-y-auto">
                         <ProductMovementGallery items={filteredItems} onAdd={addToTransaction}/>
                     </div>
                 </div>

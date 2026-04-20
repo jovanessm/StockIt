@@ -10,6 +10,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {Link} from "react-router-dom";
 
 export type TransactionRow = {
     transactionId: string
@@ -105,7 +106,11 @@ export const columns: ColumnDef<TransactionRow>[] = [
             return (
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            className="h-8 w-8 p-0"
+                            aria-label="Open actions menu">
                             <MoreHorizontal className="h-4 w-4" />
                         </Button>
                     </DropdownMenuTrigger>
@@ -125,10 +130,10 @@ export const columns: ColumnDef<TransactionRow>[] = [
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
-                            <a href={`/product/${row.original.productId}`} className="flex items-center">
+                            <Link to={`/product/${row.original.productId}`} className="flex items-center">
                                 <LinkIcon className="mr-2 h-4 w-4" />
                                 Go to Product Details
-                            </a>
+                            </Link>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card"
 import { DataTable } from "@/components/ui/data-table"
 import { columns } from "@/components/transaction-history/transaction-history-columns"
 import type { TransactionRow } from "@/components/transaction-history/transaction-history-columns"
+import { exportTransactionRowsToExcel } from "@/lib/export-excel"
 
 // Flattened mock data - each row is a product change in a transaction
 const mockTransactionRows: TransactionRow[] = [
@@ -160,6 +161,10 @@ const mockTransactionRows: TransactionRow[] = [
 ]
 
 export default function TransactionHistoryPage() {
+    const handleDownloadExcel = async () => {
+        await exportTransactionRowsToExcel(mockTransactionRows)
+    }
+
     return (
         <div className="flex flex-col gap-6 px-6 py-8">
             {/* Header */}
@@ -171,9 +176,9 @@ export default function TransactionHistoryPage() {
             {/* Top Actions */}
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex gap-2">
-                    <Button className="gap-2" size="sm">
+                    <Button className="gap-2" size="sm" onClick={handleDownloadExcel}>
                         <DownloadCloud className="h-4 w-4" />
-                        Download as
+                        Download as xlsx File
                     </Button>
                     <Button variant="outline" className="gap-2" size="sm">
                         <ArrowDownUp className="h-4 w-4" />

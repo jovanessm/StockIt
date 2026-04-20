@@ -55,16 +55,10 @@ export const columns: ColumnDef<TransactionRow>[] = [
     {
         accessorKey: "stockBefore",
         header: "STOCK BEFORE",
-        cell: ({ row }) => (
-            <div className="text-right font-medium">{row.original.stockBefore}</div>
-        ),
     },
     {
         accessorKey: "stockAfter",
         header: "STOCK AFTER",
-        cell: ({ row }) => (
-            <div className="text-right font-medium">{row.original.stockAfter}</div>
-        ),
     },
     {
         accessorKey: "method",

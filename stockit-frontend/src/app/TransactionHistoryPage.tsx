@@ -1,4 +1,5 @@
 import { DownloadCloud, ArrowDownUp } from "lucide-react"
+import { useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { DataTable } from "@/components/ui/data-table"
@@ -161,8 +162,28 @@ const mockTransactionRows: TransactionRow[] = [
 ]
 
 export default function TransactionHistoryPage() {
+    const [sortMode, setSortMode] = useState<"latest" | "name">("latest")
+
+    const sortedTransactionRows = useMemo(() => {
+        const rows = [...mockTransactionRows]
+
+        if (sortMode === "name") {
+            return rows.sort((a, b) => a.productName.localeCompare(b.productName))
+        }
+
+        return rows.sort((a, b) => {
+            const latest = Date.parse(a.dateTime)
+            const previous = Date.parse(b.dateTime)
+            return (Number.isNaN(previous) ? 0 : previous) - (Number.isNaN(latest) ? 0 : latest)
+        })
+    }, [sortMode])
+
+    const handleToggleSort = () => {
+        setSortMode((currentSortMode) => (currentSortMode === "latest" ? "name" : "latest"))
+    }
+
     const handleDownloadExcel = async () => {
-        await exportTransactionRowsToExcel(mockTransactionRows)
+        await exportTransactionRowsToExcel(sortedTransactionRows)
     }
 
     return (
@@ -180,16 +201,16 @@ export default function TransactionHistoryPage() {
                         <DownloadCloud className="h-4 w-4" />
                         Download as xlsx File
                     </Button>
-                    <Button variant="outline" className="gap-2" size="sm">
+                    <Button variant="outline" className="gap-2" size="sm" onClick={handleToggleSort}>
                         <ArrowDownUp className="h-4 w-4" />
-                        Sort by Latest
+                        Sort by {sortMode === "latest" ? "Latest" : "Name"}
                     </Button>
                 </div>
             </div>
 
             {/* Table */}
             <Card className="overflow-hidden">
-                <DataTable columns={columns} data={mockTransactionRows} className="px-4" />
+                <DataTable columns={columns} data={sortedTransactionRows} className="px-4" />
             </Card>
         </div>
     )

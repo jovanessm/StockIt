@@ -29,7 +29,7 @@ export function ProductMovementTransactionForm({
     onRemove,
 }: ProductMovementTransactionFormProps) {
     return (
-        <Card className="flex h-full min-h-[42rem] flex-col bg-muted/80 py-4">
+        <Card className="flex h-full min-h-168 flex-col bg-muted/80 py-4">
             <CardHeader>
                 <CardTitle className="text-3xl font-semibold text-primary">Transaction List</CardTitle>
             </CardHeader>

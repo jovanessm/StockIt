@@ -46,6 +46,11 @@ const data = {
             icon: IconFolder,
         },
         {
+            title: "Add New Product",
+            url: "/new-product",
+            icon: IconFileDescription,
+        },
+        {
             title: "Product Movement",
             url: "/product-movement",
             icon: IconListDetails,
@@ -54,12 +59,6 @@ const data = {
             title: "Transaction History",
             url: "/transaction-history",
             icon: IconHistory,
-        },
-
-        {
-            title: "Team",
-            url: "#",
-            icon: IconUsers,
         },
     ],
     navClouds: [

@@ -6,9 +6,16 @@ import {
 type ProductMovementFilterGroupProps = {
     value: string;
     onValueChange: (value: string) => void;
+    categories?: string[];
 }
 
-export function ProductMovementFilterGroup({ value, onValueChange }: ProductMovementFilterGroupProps) {
+const DEFAULT_CATEGORIES = ["all", "shuttlecock", "racket", "bag", "shoes", "string", "grip"];
+
+export function ProductMovementFilterGroup({ value, onValueChange, categories = DEFAULT_CATEGORIES }: ProductMovementFilterGroupProps) {
+    const formatLabel = (category: string) => {
+        return category.charAt(0).toUpperCase() + category.slice(1);
+    };
+
     return (
         <ToggleGroup
             type="single"
@@ -17,29 +24,18 @@ export function ProductMovementFilterGroup({ value, onValueChange }: ProductMove
             onValueChange={(nextValue) => onValueChange(nextValue || "all")}
             variant="outline"
             spacing={5}
-            className="grid w-full grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 xl:!inline-grid xl:!w-max xl:grid-flow-col xl:auto-cols-fr"
+            className="grid w-full grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 xl:inline-grid! xl:w-max! xl:grid-flow-col xl:auto-cols-fr"
         >
-            <ToggleGroupItem value="all" aria-label="Toggle all" className="w-full">
-                All
-            </ToggleGroupItem>
-            <ToggleGroupItem value="shuttlecock" aria-label="Toggle shuttlecock" className="w-full">
-                Shuttlecock
-            </ToggleGroupItem>
-            <ToggleGroupItem value="racket" aria-label="Toggle racket" className="w-full">
-                Racket
-            </ToggleGroupItem>
-            <ToggleGroupItem value="bag" aria-label="Toggle bag" className="w-full">
-                Bag
-            </ToggleGroupItem>
-            <ToggleGroupItem value="shoes" aria-label="Toggle shoes" className="w-full">
-                Shoes
-            </ToggleGroupItem>
-            <ToggleGroupItem value="string" aria-label="Toggle string" className="w-full">
-                String
-            </ToggleGroupItem>
-            <ToggleGroupItem value="grip" aria-label="Toggle grip" className="w-full">
-                Grip
-            </ToggleGroupItem>
+            {categories.map((category) => (
+                <ToggleGroupItem 
+                    key={category} 
+                    value={category} 
+                    aria-label={`Toggle ${category}`} 
+                    className="w-full"
+                >
+                    {formatLabel(category)}
+                </ToggleGroupItem>
+            ))}
         </ToggleGroup>
     )
 }

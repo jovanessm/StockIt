@@ -32,7 +32,7 @@ export function ProductMovementGallery({ items, onAdd }: ProductMovementGalleryP
                             <img
                                 src={item.imageSrc}
                                 alt={item.name}
-                                className="aspect-[4/3] w-full object-cover"
+                                className="aspect-4/3 w-full object-cover"
                                 loading="lazy"
                             />
                         </div>

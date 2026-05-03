@@ -8,6 +8,7 @@ interface Product {
     name: string;
     category: string;
     price: string;
+    stock: string;
     description: string;
     tags: string[];
 }
@@ -19,11 +20,12 @@ export default function AddNewProductPage() {
         name: "",
         category: "",
         price: "",
+        stock: "",
         description: "",
         tags: [],
     });
 
-    const categories = ["Men", "Women", "Kids", "Accessories"];
+    const categories = ["all", "shuttlecock", "racket", "bag", "shoes", "string", "grip"];
 
     const handleFilesAdded = (newFiles: UploadedFile[]) => {
         setUploadedFiles((prev) => [...prev, ...newFiles]);

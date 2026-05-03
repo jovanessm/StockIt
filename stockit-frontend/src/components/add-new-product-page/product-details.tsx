@@ -18,6 +18,7 @@ interface ProductDetailsProps {
         name: string;
         category: string;
         price: string;
+        stock: string;
         description: string;
         tags: string[];
     };
@@ -49,7 +50,7 @@ export function ProductDetails({
                     <Label htmlFor="product-name">Product Name</Label>
                     <Input
                         id="product-name"
-                        placeholder="Navy Blue Sneakers Shoe"
+                        placeholder="Yonex Power Cushion 65 Z2"
                         value={product.name}
                         onChange={(e) =>
                             onProductChange("name", e.target.value)
@@ -83,25 +84,47 @@ export function ProductDetails({
             </Card>
 
             {/* Price */}
-            <Card className="p-4">
-                <div className="space-y-2">
-                    <Label htmlFor="price">Price</Label>
-                    <div className="flex items-center gap-2">
-                        <span className="text-sm text-muted-foreground">$</span>
-                        <Input
-                            id="price"
-                            type="number"
-                            placeholder="175"
-                            value={product.price}
-                            onChange={(e) =>
-                                onProductChange("price", e.target.value)
-                            }
-                            step="0.01"
-                            min="0"
-                        />
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+                <Card className="p-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="price">Price</Label>
+                        <div className="flex items-center gap-2">
+                            <span className="text-sm text-muted-foreground">
+                                $
+                            </span>
+                            <Input
+                                id="price"
+                                type="number"
+                                placeholder="175"
+                                value={product.price}
+                                onChange={(e) =>
+                                    onProductChange("price", e.target.value)
+                                }
+                                step="0.01"
+                                min="0"
+                            />
+                        </div>
                     </div>
-                </div>
-            </Card>
+                </Card>
+                <Card className="p-4">
+                    <div className="space-y-2">
+                        <Label htmlFor="stock">Stock</Label>
+                        <div className="flex items-center gap-2">
+                            <Input
+                                id="stock"
+                                type="number"
+                                placeholder="100"
+                                value={product.stock}
+                                onChange={(e) =>
+                                    onProductChange("stock", e.target.value)
+                                }
+                                step="0.01"
+                                min="0"
+                            />
+                        </div>
+                    </div>
+                </Card>
+            </div>
 
             {/* Description */}
             <Card className="p-4">
@@ -109,7 +132,7 @@ export function ProductDetails({
                     <Label htmlFor="description">Description</Label>
                     <Textarea
                         id="description"
-                        placeholder="The lifestyle sneakers collection is just what you need to complete a sporty look..."
+                        placeholder="The Yonex Power Cushion 65 Z2 is designed for players seeking a blend of comfort and performance."
                         value={product.description}
                         onChange={(e) =>
                             onProductChange("description", e.target.value)

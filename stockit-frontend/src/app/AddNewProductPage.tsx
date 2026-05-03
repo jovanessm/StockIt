@@ -82,9 +82,10 @@ export default function AddNewProductPage() {
     };
 
     return (
-        <div className="@container/main flex flex-1 flex-col gap-4 p-6">
-            <div className="mb-4">
-                <h1 className="text-3xl font-bold">Add Product</h1>
+        <div className="@container/main flex flex-1 flex-col gap-6 px-6 py-8">
+            <div className="flex flex-col gap-2">
+                <h1 className="text-4xl font-bold text-foreground">Add Product</h1>
+                <p className="text-sm text-muted-foreground">Add new product to product list</p>
             </div>
 
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

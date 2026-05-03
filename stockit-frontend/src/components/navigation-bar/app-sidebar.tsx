@@ -60,12 +60,6 @@ const data = {
             url: "/transaction-history",
             icon: IconHistory,
         },
-
-        {
-            title: "Team",
-            url: "#",
-            icon: IconUsers,
-        },
     ],
     navClouds: [
         {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useId, useRef, useState, type DragEvent, type ChangeEvent } from "react";
 import { Upload, X, Check } from "lucide-react";
 
 export interface UploadedFile {
@@ -29,20 +29,38 @@ export function FileUpload({
     title = "Add Images",
 }: FileUploadProps) {
     const [isDragging, setIsDragging] = useState(false);
+    const fileInputId = useId();
+    const uploadIntervals = useRef<Map<string, ReturnType<typeof setInterval>>>(new Map());
 
-    const handleDragOver = (e: React.DragEvent) => {
+    const clearUploadInterval = (fileId: string) => {
+        const intervalId = uploadIntervals.current.get(fileId);
+
+        if (intervalId) {
+            clearInterval(intervalId);
+            uploadIntervals.current.delete(fileId);
+        }
+    };
+
+    useEffect(() => {
+        return () => {
+            uploadIntervals.current.forEach((intervalId) => clearInterval(intervalId));
+            uploadIntervals.current.clear();
+        };
+    }, []);
+
+    const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         e.stopPropagation();
         setIsDragging(true);
     };
 
-    const handleDragLeave = (e: React.DragEvent) => {
+    const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         e.stopPropagation();
         setIsDragging(false);
     };
 
-    const handleDrop = (e: React.DragEvent) => {
+    const handleDrop = (e: DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         e.stopPropagation();
         setIsDragging(false);
@@ -50,7 +68,7 @@ export function FileUpload({
         handleFilesSelected(droppedFiles);
     };
 
-    const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileInput = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             const selectedFiles = Array.from(e.target.files);
             handleFilesSelected(selectedFiles);
@@ -59,7 +77,7 @@ export function FileUpload({
 
     const handleFilesSelected = (selectedFiles: File[]) => {
         const newFiles = selectedFiles.map((file) => ({
-            id: Math.random().toString(36).substr(2, 9),
+            id: crypto.randomUUID(),
             name: file.name,
             size: file.size,
             progress: 0,
@@ -72,13 +90,22 @@ export function FileUpload({
         newFiles.forEach((uploadedFile) => {
             let progress = 0;
             const interval = setInterval(() => {
+                if (!uploadIntervals.current.has(uploadedFile.id)) {
+                    clearInterval(interval);
+                    return;
+                }
+
                 progress += Math.random() * 30;
                 if (progress > 100) progress = 100;
 
                 onFileProgressUpdate(uploadedFile.id, progress);
 
-                if (progress >= 100) clearInterval(interval);
+                if (progress >= 100) {
+                    clearUploadInterval(uploadedFile.id);
+                }
             }, 300);
+
+            uploadIntervals.current.set(uploadedFile.id, interval);
         });
     };
 
@@ -100,11 +127,11 @@ export function FileUpload({
                 <Upload className="w-12 h-12 text-muted-foreground" />
                 <div className="text-center">
                     <p className="text-sm font-medium">Drop your files here, or</p>
-                    <label htmlFor="file-input" className="text-primary cursor-pointer hover:underline">
+                    <label htmlFor={fileInputId} className="text-primary cursor-pointer hover:underline">
                         Browse
                     </label>
                     <input
-                        id="file-input"
+                        id={fileInputId}
                         type="file"
                         multiple
                         accept={accept}
@@ -141,8 +168,13 @@ export function FileUpload({
                             )}
                         </div>
                         <button
-                            onClick={() => onFileRemoved(file.id)}
+                            onClick={() => {
+                                clearUploadInterval(file.id);
+                                onFileRemoved(file.id);
+                            }}
                             className="text-destructive hover:bg-destructive/10 p-1 rounded shrink-0"
+                            type ="button"
+                            aria-label="remove image"
                         >
                             <X className="w-4 h-4" />
                         </button>

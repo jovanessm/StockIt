@@ -25,7 +25,7 @@ export default function AddNewProductPage() {
         tags: [],
     });
 
-    const categories = ["all", "shuttlecock", "racket", "bag", "shoes", "string", "grip"];
+    const categories = ["shuttlecock", "racket", "bag", "shoes", "string", "grip", "others"];
 
     const handleFilesAdded = (newFiles: UploadedFile[]) => {
         setUploadedFiles((prev) => [...prev, ...newFiles]);

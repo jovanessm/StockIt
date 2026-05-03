@@ -9,7 +9,7 @@ import LoginPage from "@/app/LoginPage.tsx";
 import ProductDetailPage from "@/app/ProductDetailPage.tsx";
 import ProductMovementPage from "@/app/ProductMovementPage.tsx";
 import TransactionHistoryPage from "@/app/TransactionHistoryPage.tsx";
-import AddNewProductPage from "@/app/AddNewProductPage";
+import AddNewProductPage from "@/app/AddNewProductPage.tsx";
 
 export default function App() {
     return (

@@ -152,7 +152,7 @@ export function ProductDetails({
                             placeholder="Add a tag"
                             value={tagInput}
                             onChange={(e) => onTagInputChange(e.target.value)}
-                            onKeyPress={(e) => {
+                            onKeyDown={(e) => {
                                 if (e.key === "Enter") {
                                     e.preventDefault();
                                     onAddTag();
@@ -181,6 +181,8 @@ export function ProductDetails({
                                 <button
                                     onClick={() => onRemoveTag(tag)}
                                     className="ml-1 hover:opacity-70"
+                                    type="button"
+                                    aria-label="remove tag"
                                 >
                                     <X className="w-3 h-3" />
                                 </button>

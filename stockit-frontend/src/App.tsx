@@ -9,6 +9,7 @@ import LoginPage from "@/app/LoginPage.tsx";
 import ProductDetailPage from "@/app/ProductDetailPage.tsx";
 import ProductMovementPage from "@/app/ProductMovementPage.tsx";
 import TransactionHistoryPage from "@/app/TransactionHistoryPage.tsx";
+import AddNewProductPage from "@/app/AddNewProductPage";
 
 export default function App() {
     return (
@@ -23,6 +24,8 @@ export default function App() {
                            element={<AppLayout headerTitle="Stock-IT Dashboard"><DashboardPage/></AppLayout>}/>
                     <Route path="/product-list"
                            element={<AppLayout headerTitle="Stock-IT Product List"><ProductListPage/></AppLayout>}/>
+                     <Route path="/new-product"
+                           element={<AppLayout headerTitle="Stock-IT Add New Product"><AddNewProductPage/></AppLayout>}/>
                     <Route path="/product/:id"
                            element={<AppLayout headerTitle="Stock-IT Product Detail"><ProductDetailPage/></AppLayout>}/>
                     <Route path="/product-movement"

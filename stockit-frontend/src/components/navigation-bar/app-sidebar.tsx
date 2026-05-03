@@ -46,6 +46,11 @@ const data = {
             icon: IconFolder,
         },
         {
+            title: "Add New Product",
+            url: "/new-product",
+            icon: IconFileDescription,
+        },
+        {
             title: "Product Movement",
             url: "/product-movement",
             icon: IconListDetails,
